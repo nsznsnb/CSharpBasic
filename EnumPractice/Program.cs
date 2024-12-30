@@ -107,10 +107,10 @@ namespace EnumPractice
         /// </summary>
         public static void CheckValueInEnum()
         {
-            var exists0 = Enum.IsDefined(typeof(Seibetsu), 2);
+            var exists2 = Enum.IsDefined(typeof(Seibetsu), 2);
             var exists4 = Enum.IsDefined(typeof(Seibetsu), 4);
             var existsFemale = Enum.IsDefined(typeof(Seibetsu), "Female");
-            Console.WriteLine(exists0);
+            Console.WriteLine(exists2);
             Console.WriteLine(exists4);
             Console.WriteLine(existsFemale);
 
@@ -125,17 +125,17 @@ namespace EnumPractice
         {
             var student1 = Major.Physics | Major.Math;
             var student2 = Major.None;
-            if ((student1 & Major.Physics) == Major.Physics)
+            if (student1.HasFlag(Major.Physics))
             {
                 Console.WriteLine("student1は、物理を専攻しています。");
             }
 
             if (student2 == Major.None)
             {
-                Console.WriteLine("student2の専攻はありません");
+                Console.WriteLine("student2の専攻はありません。");
             }
 
-            if ((student1 & (Major.Physics | Major.Math)) == (Major.Physics | Major.Math))
+            if (student1.HasFlag(Major.Physics | Major.Math))
             {
                 Console.WriteLine("student1は、物理と数学を専攻しています。");
             }
